@@ -19,20 +19,23 @@ Supported JDBC Drivers:
 ## `@ComponentTest`
 ```java
 public @interface ComponentTest {
-    JPATable[] tables() default {};
+    JPATable[] tables() default {};  // see JPATable
 }
 ```
 
-## `@JPATable`
+## Managing JPA test data
+### `@JPATable`
+Declares repository contents for a test method or class. Method-level annotations will override class-level datasets
 ```java
 public @interface JPATable {
-    String path();
-    Class<?> entityType();
+    String path();          // classpath resource, JSON array of entities  
+    Class<?> entityType();  // entity class
 }
 ```
-## `@JPATables`
+### `@JPATables`
+`@Repeatable` container for `@JPATable` annotations created at the test method scope
 ```java
 public @interface JPATables {
-    JPATable[] value();
+    JPATable[] value();  // see JPATable
 }
 ```
