@@ -5,10 +5,10 @@ Annotation-driven component testing utilities for Spring Boot apps.
 This library aims to minimize the configuration necessary to include infrastructure layers in tests which invoke the Spring context, leveraging TestContainers in order to create a production-like environment.
 
 ---
-## Getting Started
+## Getting started
 
-### Automatically instantiating TestContainer infrastructure
-`spring-boot-test-harness` detects infrastructure via associated beans during post-processing.
+### Instantiating TestContainer infrastructure
+`spring-boot-test-harness` detects infrastructure via associated beans during post-processing. See individual sections for more information on necessary configuration.
 
 ### `@ComponentTest`
 The `@ComponentTest` annotation indicates that a test class contains component tests. It serves as a point of for declaring class-level test data, as well as invoking the Spring Context via `@SpringBootTest`. Usage of this annotation imports all `TestExecutionListener` and `BeanPostProcessor` implementations compatible with the application.
@@ -18,7 +18,7 @@ public @interface ComponentTest {
 }
 ```
 ---
-## TestContainer Database Setup and Managing test data
+## TestContainer database setup and managing test data
 
 **Databases** are detected via the `DataSourceProperties` bean. Schema must be provided via an initialization script loaded from the classpath resource location `sql/${dataSourceProperties.name}.sql` 
 
