@@ -16,7 +16,7 @@ Supported JDBC Drivers:
 - PostgreSQL
 
 ### `@ComponentTest`
-The `@ComponentTest` annotation indicates that a test class contains component tests. It serves as a point of for declaring class-level test data, as well as invoking the Spring Context via `@SpringBootTest`. This also imports all `TestExecutionListener` and `BeanPostProcessor` implementations needed by the application.
+The `@ComponentTest` annotation indicates that a test class contains component tests. It serves as a point of for declaring class-level test data, as well as invoking the Spring Context via `@SpringBootTest`. Usage of this annotation imports all `TestExecutionListener` and `BeanPostProcessor` implementations compatible with the application.
 ```java
 public @interface ComponentTest {
     JPATable[] tables() default {};  // see JPATable
