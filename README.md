@@ -33,7 +33,7 @@ public @interface JPATable {
 }
 ```
 ### `@JPATables`
-`@Repeatable` container for `@JPATable` annotations created at the test method scope
+`@Repeatable` container for `@JPATable` annotations created at the method level
 ```java
 public @interface JPATables {
     JPATable[] value();  // see JPATable
