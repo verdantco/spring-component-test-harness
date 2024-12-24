@@ -10,11 +10,6 @@ This library aims to minimize the configuration necessary to include infrastruct
 ### Automatically instantiating TestContainer infrastructure
 `spring-boot-test-harness` detects infrastructure via associated beans during post-processing.
 
-**Databases** associated w/ JPA are detected via the `DataSourceProperties` bean, and the initialization script is loaded from the classpath resource location `sql/${dataSourceProperties.name}.sql` 
-
-Supported JDBC Drivers:
-- PostgreSQL
-
 ### `@ComponentTest`
 The `@ComponentTest` annotation indicates that a test class contains component tests. It serves as a point of for declaring class-level test data, as well as invoking the Spring Context via `@SpringBootTest`. Usage of this annotation imports all `TestExecutionListener` and `BeanPostProcessor` implementations compatible with the application.
 ```java
@@ -23,7 +18,13 @@ public @interface ComponentTest {
 }
 ```
 ---
-## Managing JPA test data
+## TestContainer Database Setup and Managing test data
+
+**Databases** are detected via the `DataSourceProperties` bean. Schema must be provided via an initialization script loaded from the classpath resource location `sql/${dataSourceProperties.name}.sql` 
+
+Supported JDBC Drivers:
+- PostgreSQL
+
 ### `@JPATable`
 Declares repository contents for a test method or class. Method-level annotations will override class-level datasets
 ```java
