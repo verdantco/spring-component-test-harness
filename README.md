@@ -14,15 +14,15 @@ This library aims to minimize the configuration necessary to include infrastruct
 
 Supported JDBC Drivers:
 - PostgreSQL
----
 
-## `@ComponentTest`
+### `@ComponentTest`
+The `@ComponentTest` annotation indicates that a test class contains component tests. It serves as a point of for declaring class-level test data, as well as invoking the Spring Context via `@SpringBootTest`. This also imports all `TestExecutionListener` and `BeanPostProcessor` implementations needed by the application.
 ```java
 public @interface ComponentTest {
     JPATable[] tables() default {};  // see JPATable
 }
 ```
-
+---
 ## Managing JPA test data
 ### `@JPATable`
 Declares repository contents for a test method or class. Method-level annotations will override class-level datasets
